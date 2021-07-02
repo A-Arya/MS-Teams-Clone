@@ -1,0 +1,17 @@
+.heading {
+  padding-top: 30px;
+  text-align: center;
+}
+.col {
+  padding: 250px;
+  padding-top: 100px;
+}
+
+.btn {
+  background-color: #6264a7;
+  border-color: #6264a7;
+}
+
+.btn:hover {
+  background-color: #373644;
+}
