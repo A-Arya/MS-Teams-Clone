@@ -18,11 +18,15 @@ app.get('/', (req, res)=>{
   res.render('home')
 })
 
-app.get('/room', (req, res) => {
-   res.redirect(`/room/${uuidV4()}`)
+app.get('/preview', (req,res) =>{
+  res.render('preview')
 })
 
-app.get('/room/:room', (req, res) => {
+app.get('/preview/room', (req, res) => {
+   res.redirect(`/preview/room/${uuidV4()}`)
+})
+
+app.get('/preview/room/:room', (req, res) => {
   res.render('room', { 
     roomId: req.params.room
    })

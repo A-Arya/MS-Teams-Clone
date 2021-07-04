@@ -3,14 +3,14 @@ const videoGrid = document.getElementById('video-grid')
 const myVideo = document.createElement('video')
 myVideo.muted = true
 
-// var peer = new Peer(undefined)
+var peer = new Peer(undefined)
 
 
-var peer = new Peer(undefined, {
-  path: '/peerjs',
-  host: '/',
-  port: '443'
-})
+// var peer = new Peer(undefined, {
+//   path: '/peerjs',
+//   host: '/',
+//   port: '443'
+// })
 
 
 const peers = {}
@@ -93,53 +93,36 @@ const scrollToBottom = () => {
 }
 
 
-const muteUnmute = () => {
-  const enabled = myVideoStream.getAudioTracks()[0].enabled;
-  if (enabled) {
-    myVideoStream.getAudioTracks()[0].enabled = false;
-    setUnmuteButton();
-  } else {
-    setMuteButton();
-    myVideoStream.getAudioTracks()[0].enabled = true;
-  }
-}
+// var click = document.querySelectorAll('div button');
+// var menu = document.querySelector('#st-container');
+// var pusher = document.querySelector('.st-pusher');
+// // to store the corresponding effect
+// var effect;
 
-const playStop = () => {
-  console.log('object')
-  let enabled = myVideoStream.getVideoTracks()[0].enabled;
-  if (enabled) {
-    myVideoStream.getVideoTracks()[0].enabled = false;
-    setPlayVideo()
-  } else {
-    setStopVideo()
-    myVideoStream.getVideoTracks()[0].enabled = true;
-  }
-}
+// // adding a click event to all the buttons
+// for (var i = 0; i < click.length; i++) {
+//   click[i].addEventListener('click', addClass)
+// }
 
-const setMuteButton = () => {
-  const html = `
-    <i class="fas fa-microphone"></i>
-  `
-  document.querySelector('.main_mute_button').innerHTML = html;
-}
+// pusher.addEventListener('click', closeMenu);
 
-const setUnmuteButton = () => {
-  const html = `
-    <i class="unmute fas fa-microphone-slash"></i>
-  `
-  document.querySelector('.main_mute_button').innerHTML = html;
-}
 
-const setStopVideo = () => {
-  const html = `
-    <i class="fas fa-video"></i>
-  `
-  document.querySelector('.main_video_button').innerHTML = html;
-}
 
-const setPlayVideo = () => {
-  const html = `
-  <i class="stop fas fa-video-slash"></i>
-  `
-  document.querySelector('.main_video_button').innerHTML = html;
-}
+// function addClass(e) {
+//   // to get the correct effect
+//   effect = e.target.getAttribute('data-effect');
+//   // adding the effects
+//   menu.classList.toggle(effect);
+//   menu.classList.toggle('st-menu-open');
+  
+//   // console.log(e.target.getAttribute('data-effect'));
+// }
+
+// function closeMenu(el) {
+//   // if the click target has this class then we close the menu by removing all the classes
+//   if (el.target.classList.contains('st-pusher')) {
+//     menu.classList.toggle(effect);
+//     menu.classList.toggle('st-menu-open');
+//     // console.log(el.target);
+//   } 
+// }
