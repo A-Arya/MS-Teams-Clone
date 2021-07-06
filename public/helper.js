@@ -1,3 +1,6 @@
+var audio_preview
+var video_preview
+
 const muteUnmute = () => {
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
     if (enabled) {
