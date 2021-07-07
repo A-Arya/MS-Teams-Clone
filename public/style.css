@@ -102,10 +102,3 @@ video {
 #phone {
   color: red;
 }
-
-*,
-*::after,
-*::before {
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}

@@ -1,12 +1,19 @@
-var audio_preview
-var video_preview
+var audio_preview = false;
+var video_preview = false;
+
+if (isConnected === false){
+  
+}
 
 const muteUnmute = () => {
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
     if (enabled) {
       myVideoStream.getAudioTracks()[0].enabled = false;
+      audio_preview = false;
       setUnmuteButton();
-    } else {
+    }
+    else {
+      audio_preview = true;
       setMuteButton();
       myVideoStream.getAudioTracks()[0].enabled = true;
     }
@@ -16,10 +23,13 @@ const muteUnmute = () => {
     console.log('object')
     let enabled = myVideoStream.getVideoTracks()[0].enabled;
     if (enabled) {
+      video_preview = false;
       myVideoStream.getVideoTracks()[0].enabled = false;
       setPlayVideo()
       // setBackground()
-    } else {
+    }
+    else {
+      video_preview = true;
       setStopVideo()
       myVideoStream.getVideoTracks()[0].enabled = true;
     }
