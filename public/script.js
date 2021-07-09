@@ -17,8 +17,8 @@ const peers = {}
 let myVideoStream
 // if(audio_preview || video_preview){
   navigator.mediaDevices.getUserMedia({
-    video: true,
-    audio: true
+    video: true, //video_preview,
+    audio: true //audio_preview
   })
   .then(stream => {
     myVideoStream = stream

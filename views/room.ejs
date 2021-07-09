@@ -17,19 +17,20 @@
     <link rel="stylesheet" href="/style.css">
     
     <script>
-        const ROOM_ID = "<%= roomId %>";
-        var isConnected = false;
+        const ROOM_ID = "<%= roomId %>"
     </script>
+
     <script src="/helper.js"></script>
+    
     
 </head>
 <body style="background-color: #373644;">
     <div class = "main">
         <div class = "main_left">
             <div class = "main_videos">
-                <div id="video-grid">
+                <div id="video-grid" img_src = "/user_icon.PNG">
 
-                 </div>
+                </div>
             </div>
             <div class="main_controls">
                 <div class="main_controls_block">
@@ -69,25 +70,31 @@
         </div>
     </div>
     <!-- <script src ="jquery-3.6.0.js"></script> -->
-    <script>
+    <!-- <script>
+        console.log("hi")
         if(audio_preview) { 
             myVideoStream.getAudioTracks()[0].enabled = true; 
+            console.log("audio on")
             setMuteButton()
         } else { 
             myVideoStream.getAudioTracks()[0].enabled = false;
+            console.log("audio off")
             setUnmuteButton() 
         }
-
-        if(video_preview){
+        video_preview = true;
+        
+        if(video_preview === true){
             myVideoStream.getVideoTracks()[0].enabled = true;
+            console.log("video on")
             setStopVideo()
         }
         else{
             myVideoStream.getVideoTracks()[0].enabled = false;
+            console.log("video off")
             setPlayVideo()
         }
     </script>
-    
+     -->
     <script src = "/script.js"></script>
 
 </body>

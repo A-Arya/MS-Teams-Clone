@@ -1,19 +1,20 @@
-var audio_preview = false;
-var video_preview = false;
+// var audio_preview = true;
+// var video_preview = true;
 
-if (isConnected === false){
+// if (isConnected === false){
   
-}
+// }
 
 const muteUnmute = () => {
     const enabled = myVideoStream.getAudioTracks()[0].enabled;
     if (enabled) {
       myVideoStream.getAudioTracks()[0].enabled = false;
-      audio_preview = false;
+      console.log("audio false")
+      // audio_preview = false;
       setUnmuteButton();
     }
     else {
-      audio_preview = true;
+      // audio_preview = true;
       setMuteButton();
       myVideoStream.getAudioTracks()[0].enabled = true;
     }
@@ -23,13 +24,13 @@ const muteUnmute = () => {
     console.log('object')
     let enabled = myVideoStream.getVideoTracks()[0].enabled;
     if (enabled) {
-      video_preview = false;
+      // video_preview = false;
       myVideoStream.getVideoTracks()[0].enabled = false;
       setPlayVideo()
       // setBackground()
     }
     else {
-      video_preview = true;
+      // video_preview = true;
       setStopVideo()
       myVideoStream.getVideoTracks()[0].enabled = true;
     }
@@ -73,3 +74,5 @@ const muteUnmute = () => {
   //    `
   //   document.querySelector('.video-grid').innerHTML = video_off;
   // }
+
+
