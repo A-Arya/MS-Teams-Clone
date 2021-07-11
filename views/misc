@@ -1,0 +1,54 @@
+
+<!-- <% if (isConnected === false) { %> -->
+    <!-- <body style="background-color: #232323;">
+        <div class="main">
+            <nav class="navbar">
+                  <span class="navbar-text">
+                    Meeting
+                  </span>
+              </nav>
+            <p class="h5">Choose audio and video settings for your meeting</p>
+        
+            <div class = "main_videos_p">
+                <div id="video-grid_p">
+        
+                 </div>
+            </div>
+            
+            <div class="main_controls_p">
+                <div class="main_controls_block_p">
+                        <div onclick="muteUnmute()" class="main_controls_button_p main_mute_button_p">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                       <div onclick="playStop()" class="main_controls_button_p main_video_button_p" >
+                            <i class="fas fa-video"></i>
+                       </div>
+                </div>
+            </div>
+            <form id="form" onsubmit= "return false;" >
+                <div>Enter your name </div>
+                <div><input type = "text" id="userInput"></div>
+                 
+                    <input type = "submit" value ="Join now" onclick= "othername();" id = "submit_button">
+                </a>
+            </form>
+            <div class="buttons">
+                <% isConnected = true; %>
+                <a href="/" class="btn btn-secondary btn-sm" id="two">Join now</a>
+                <a href="/" class="btn btn-primary btn-sm" id="one">Cancel</a>
+                
+            </div>
+        
+        </div> 
+        <script src="/helper.js"></script>
+<script src="/preview.js"></script> -->
+
+
+<!-- <% isConnected == true %> -->
+<!-- <script>
+    isConnected = "<%= isConnected %>"
+    console.log(isConnected)</script>
+<button onclick="location.reload()">next</button> -->
+        
+<!-- <% } else if (isConnected === true){ %>         -->
+<!-- <% } %> -->

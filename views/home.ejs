@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
     <link rel="stylesheet" href="/home.css">
     <title>MS Teams</title>
+
 </head>
 <body>
     <div class = "heading">
@@ -21,9 +22,17 @@
             <div class="card text-center h-100" style="width: 18rem;" id= "chat_card">
                 <img src="/chat.PNG" class="card-img-top" alt="...">
                 <div class="card-body">
-                  <h5 class="card-title">Get chatting</h5>
+                  <h5 class="card-title">Join a meet</h5>
                   <p class="card-text">Get in touch with friends and family.</p>
-                  <a href="#" class="btn btn-primary">Start a chat</a>
+                  
+                    <div id="popover-form" class="hide">
+                        <form id="myform" class="form-inline" role="form">
+                        <div class="form-group">
+                            <input id="meet_url" type="url" placeholder="Enter meet URL" class="form-control" />
+                        </div>
+                        <input type="button" class="btn btn-primary" value="Join" onclick="javascript: window.open(document.getElementById('meet_url').value);">
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -33,9 +42,18 @@
                 <div class="card-body">
                   <h5 class="card-title">Meet now</h5>
                   <p class="card-text">Create an instant meeting and connect everyone with just one click.</p>
-                  <a href="/preview" class="btn btn-primary">Meet now</a>
+                  <a href="/room" class="btn btn-primary">Create a meet</a>
                 </div>
             </div>
         </div> 
+
+        <script>
+            var meet_link = document.getElementById("meet_url").value
+
+            function newPage(){
+                window.open(meet_link)
+            }
+        </script>
+            
 </body>
 </html>

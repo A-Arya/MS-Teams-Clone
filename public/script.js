@@ -15,10 +15,9 @@ var peer = new Peer(undefined)
 
 const peers = {}
 let myVideoStream
-// if(audio_preview || video_preview){
   navigator.mediaDevices.getUserMedia({
-    video: true, //video_preview,
-    audio: true //audio_preview
+    video: true, 
+    audio: true 
   })
   .then(stream => {
     myVideoStream = stream
@@ -42,7 +41,7 @@ let myVideoStream
     if (peers[userId]) peers[userId].close()
   })
 
-// }
+
 
 peer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id)
@@ -82,9 +81,12 @@ $('html').on('keypress', function (e) {
   }
 });
 
+// const user_name = localStorage["name"]
+// console.log(user_name)
+
 socket.on('createMessage', message => {
   console.log('from server chat')
-  $("ul").append(`<li class="message"><b>user</b><br/>${message}</li>`);
+  $("ul").append(`<li class="message"><b>USER</b><br/>${message}</li>`);
   scrollToBottom()
 })
 
@@ -95,4 +97,61 @@ const scrollToBottom = () => {
 }
 
 
+const muteUnmute = () => {
+  const enabled = myVideoStream.getAudioTracks()[0].enabled;
+  if (enabled) {
+    myVideoStream.getAudioTracks()[0].enabled = false;
+    console.log("audio false")
+    audio_preview = false;
+    setUnmuteButton();
+  }
+  else {
+    audio_preview = true;
+    setMuteButton();
+    myVideoStream.getAudioTracks()[0].enabled = true;
+  }
+}
 
+const playStop = () => {
+  console.log('object')
+  let enabled = myVideoStream.getVideoTracks()[0].enabled;
+  if (enabled) {
+    video_preview = false;
+    myVideoStream.getVideoTracks()[0].enabled = false;
+    setPlayVideo()
+    
+  }
+  else {
+    video_preview = true;
+    setStopVideo()
+    myVideoStream.getVideoTracks()[0].enabled = true;
+  }
+}
+
+const setMuteButton = () => {
+  const html = `
+    <i class="fas fa-microphone"></i>
+  `
+  document.querySelector('.main_mute_button').innerHTML = html;
+}
+
+const setUnmuteButton = () => {
+  const html = `
+    <i class="unmute fas fa-microphone-slash"></i>
+  `
+  document.querySelector('.main_mute_button').innerHTML = html;
+}
+
+const setStopVideo = () => {
+  const html = `
+    <i class="fas fa-video"></i>
+  `
+  document.querySelector('.main_video_button').innerHTML = html;
+}
+
+const setPlayVideo = () => {
+  const html = `
+  <i class="stop fas fa-video-slash"></i>
+  `
+  document.querySelector('.main_video_button').innerHTML = html;
+}

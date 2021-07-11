@@ -10,6 +10,7 @@
 .btn {
   background-color: #6264a7;
   border-color: #6264a7;
+  margin: 20px;
 }
 
 .btn:hover {
