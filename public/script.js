@@ -15,6 +15,9 @@ var peer = new Peer(undefined)
 
 const peers = {}
 let myVideoStream
+
+//getting audio and video of the user
+
   navigator.mediaDevices.getUserMedia({
     video: true, 
     audio: true 
@@ -22,6 +25,8 @@ let myVideoStream
   .then(stream => {
     myVideoStream = stream
     addVideoStream(myVideo, stream)
+
+    //answering a call when a video stream is recieved
 
     peer.on('call', call => {
       call.answer(stream)
@@ -32,6 +37,7 @@ let myVideoStream
       })
     })
 
+  //making a socket connection on event user-connected
   socket.on('user-connected', userId => {
       connectToNewUser(userId, stream);
     })
@@ -47,6 +53,8 @@ peer.on('open', id => {
   socket.emit('join-room', ROOM_ID, id)
 })
 
+//when a new user connects, his/her video stream is shown on the screen
+
 function connectToNewUser (userId, stream) {
   const call = peer.call(userId, stream)
   const video = document.createElement('video')
@@ -61,6 +69,8 @@ function connectToNewUser (userId, stream) {
   peers[userId] = call
 }
 
+//adds the video stream to the screen
+
 function addVideoStream (video, stream) {
   video.srcObject = stream
   video.addEventListener('loadedmetadata', () => {
@@ -69,6 +79,8 @@ function addVideoStream (video, stream) {
   })
   videoGrid.append(video)
 }
+
+//chat
 
 let text = $('input');
 
@@ -81,8 +93,7 @@ $('html').on('keypress', function (e) {
   }
 });
 
-// const user_name = localStorage["name"]
-// console.log(user_name)
+//sending a message
 
 socket.on('createMessage', message => {
   console.log('from server chat')
@@ -90,12 +101,14 @@ socket.on('createMessage', message => {
   scrollToBottom()
 })
 
+//scroll to bottom of the chat
 
 const scrollToBottom = () => {
   var d = $('.main_chat_window');
   d.scrollTop(d.prop("scrollHeight"));
 }
 
+//Audio video settings
 
 const muteUnmute = () => {
   const enabled = myVideoStream.getAudioTracks()[0].enabled;
@@ -128,12 +141,16 @@ const playStop = () => {
   }
 }
 
+//sets the mute button
+
 const setMuteButton = () => {
   const html = `
     <i class="fas fa-microphone"></i>
   `
   document.querySelector('.main_mute_button').innerHTML = html;
 }
+
+//sets the unmute button
 
 const setUnmuteButton = () => {
   const html = `
@@ -142,6 +159,8 @@ const setUnmuteButton = () => {
   document.querySelector('.main_mute_button').innerHTML = html;
 }
 
+//sets the video off button
+
 const setStopVideo = () => {
   const html = `
     <i class="fas fa-video"></i>
@@ -149,6 +168,8 @@ const setStopVideo = () => {
   document.querySelector('.main_video_button').innerHTML = html;
 }
 
+
+//sets the video on button
 const setPlayVideo = () => {
   const html = `
   <i class="stop fas fa-video-slash"></i>
