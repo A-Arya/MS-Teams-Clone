@@ -1,0 +1,26 @@
+.h1 {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin: 40px;
+  margin-top: 100px;
+}
+
+#button {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-self: center;
+  margin-left: 550px;
+  margin-top: 200px;
+}
+
+.btn {
+  background-color: #6264a7;
+  border-color: #6264a7;
+}
+
+.btn:hover {
+  background-color: #373644;
+  border-color: #6264a7;
+}

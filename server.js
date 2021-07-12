@@ -18,9 +18,9 @@ app.get('/', (req, res)=>{
   res.render('home')
 })
 
-// app.get('/preview', (req,res) =>{
-//   res.render('preview')
-// })
+app.get('/End', (req,res) =>{
+  res.render('End')
+})
 
 app.get('/room', (req, res) => {
    res.redirect(`/room/${uuidV4()}`)
