@@ -13,6 +13,8 @@ Technologies used:
 
 [Link to the web-app](https://hidden-stream-57558.herokuapp.com/)
 
+![alt text](https://github.com/A-Arya/MS-Teams-Clone/blob/main/public/images/Screenshot%20(572).png)
+
 
 
 
